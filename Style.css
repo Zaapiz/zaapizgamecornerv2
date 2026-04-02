@@ -1,1 +1,192 @@
+/* ============================================================
+   Base & Reset
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ============================================================
+   Background Watermark — "zaapiz" grows as you scroll
+   ============================================================ */
+.bg-watermark {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(6rem, 20vw, 22rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #fff;
+  opacity: 0;           /* starts invisible, JS fades it in */
+  transform: scale(0.7);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transition: opacity 0.1s linear, transform 0.1s linear;
+  text-transform: uppercase;
+  /* Subtle gradient so it looks carved into the background */
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ============================================================
+   Profile Section
+   ============================================================ */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.avatar-wrap {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #333;
+  overflow: hidden;
+  background: #1a1a1a;
+  box-shadow: 0 0 0 4px #000, 0 0 0 6px #333;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.username {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.bio {
+  font-size: 0.95rem;
+  color: #999;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Social Links
+   ============================================================ */
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid #222;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.link-btn:hover,
+.link-btn:focus-visible {
+  background: #1c1c1c;
+  border-color: #444;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.link-btn:active {
+  transform: translateY(0);
+}
+
+/* Icon inside each button */
+.icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Brand accent colours on left border */
+.link-btn.github        { border-left: 4px solid #6e40c9; }
+.link-btn.discord       { border-left: 4px solid #5865F2; }
+.link-btn.instagram     { border-left: 4px solid #E1306C; }
+.link-btn.tiktok        { border-left: 4px solid #ff0050; }
+.link-btn.snapchat      { border-left: 4px solid #FFFC00; color: #FFFC00; }
+.link-btn.x-twitter     { border-left: 4px solid #fff; }
+
+/* ============================================================
+   Responsive — Mobile tweaks
+   ============================================================ */
+@media (max-width: 480px) {
+  .container {
+    padding: 32px 16px 64px;
+    gap: 24px;
+  }
+
+  .avatar-wrap {
+    width: 96px;
+    height: 96px;
+  }
+
+  .username {
+    font-size: 1.25rem;
+  }
+
+  .link-btn {
+    padding: 13px 16px;
+    font-size: 0.93rem;
+    border-radius: 12px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
