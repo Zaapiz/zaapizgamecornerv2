@@ -160,6 +160,22 @@ body {
 .link-btn.tiktok        { border-left: 4px solid #ff0050; }
 .link-btn.snapchat      { border-left: 4px solid #FFFC00; color: #FFFC00; }
 .link-btn.x-twitter     { border-left: 4px solid #fff; }
+.link-btn.kofi          { border-left: 4px solid #FF5E5B; }
+.link-btn.patreon       { border-left: 4px solid #FF424D; }
+.link-btn.buymeacoffee  { border-left: 4px solid #FFDD00; }
+
+/* ============================================================
+   Section label — divider heading between link groups
+   ============================================================ */
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  text-align: center;
+  padding: 4px 0 2px;
+}
 
 /* ============================================================
    Responsive — Mobile tweaks
